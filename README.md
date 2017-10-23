@@ -1,5 +1,5 @@
 # Mr.Mime
-> font-end for mr.mime application
+> Front-end for mr.mime application
 
 ### Install:
 ```bash
