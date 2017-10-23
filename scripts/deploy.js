@@ -1,13 +1,10 @@
-// const { host, username, password, port } = require('../ssh-config');
+const { host, username, password, port } = process.env;
 const path = require('path');
 const colors = require('colors');
 const uniq = require('lodash/uniq');
 const Client = require('ssh2-sftp-client');
 
 const { putDir, progress, done, error, finish } = require('./helpers');
-
-console.log(process)
-console.log(process.env)
 
 const sftp = new Client();
 
