@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="rezcaster">
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4267b2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="i/favicon.ico" type="image/x-icon" />
+    <title>mr.mime</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div ui-view ng-controller="rootCtrl" id="root-el"></div>
+
+<!--angular & vendors-->
+
+<!-- build:js js/vendor.js -->
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/ngstorage/ngStorage.js"></script>
+<script src="../node_modules/awesome-angular-swipe/lib/awesome-angular-swipe.js"></script>
+<script src="../node_modules/angular-touch/angular-touch.min.js"></script>
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../node_modules/moment/moment.js"></script>
+<!-- endbuild -->
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

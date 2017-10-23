@@ -1,0 +1,4 @@
+dist/
+node_modules/
+ssh-config.json
+.DS_Store

@@ -1,0 +1,34 @@
+<div class="report viewport">
+  <div class="select-interval">
+    <div class="wrap-dropdown">
+      <div class="active" ng-click="REPORT.toggleMonthsDropdown()">
+        {{REPORT.activeMonth}}
+        <i ng-class="REPORT.monthsDropdownVisible ? 'fa fa-angle-up' : 'fa fa-angle-down'"></i>
+      </div>
+      <ul class="dropdown" ng-if="REPORT.monthsDropdownVisible">
+        <li ng-repeat="month in REPORT.months" ng-class="month === REPORT.activeMonth ? 'activeInList' : ''" ng-click="REPORT.selectMonth(month)">{{month}}</li>
+      </ul>
+    </div>
+    <div class="wrap-dropdown">
+      <div class="active" ng-click="REPORT.toggleYearsDropdown()">
+        {{REPORT.activeYear}}
+        <i ng-class="REPORT.yearsDropdownVisible ? 'fa fa-angle-up' : 'fa fa-angle-down'"></i>
+      </div>
+      <ul class="dropdown" ng-if="REPORT.yearsDropdownVisible">
+        <li ng-repeat="year in REPORT.years" ng-class="year === REPORT.activeYear ? 'activeInList' : ''" ng-click="REPORT.selectYear(year)">{{year}}</li>
+      </ul>
+    </div>
+  </div>
+  <table ng-if="REPORT.data.length">
+    <tr ng-repeat="item in REPORT.data">
+      <td>{{item.date}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+    <tr class="total">
+      <td>Total:</td>
+      <td>{{REPORT.total}}</td>
+    </tr>
+  </table>
+  <div class="no-data" ng-if="!REPORT.data.length">No data for this period</div>
+  <div class="to-excel-button" ng-click="REPORT.toExcel()">to excel</div>
+</div>

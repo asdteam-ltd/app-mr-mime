@@ -1,0 +1,82 @@
+<div class="taxonomies viewport">
+  <section>
+    <div class="top" ng-click="TAXONOMIES.categoriesCollapsed = !TAXONOMIES.categoriesCollapsed">
+      <h3>Categories:</h3>
+      <span class="mini-button">
+        <i ng-if="!TAXONOMIES.categoriesCollapsed" class="fa fa-angle-down" aria-hidden="true"></i>
+        <i ng-if="TAXONOMIES.categoriesCollapsed" class="fa fa-angle-right" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div ng-if="!TAXONOMIES.categoriesCollapsed">
+      <ul>
+        <li ng-repeat="item in TAXONOMIES.categoriesList">
+          <h3 ng-hide="item.editing">{{item.name}}</h3>
+          <input ng-if="item.editing" type="text" value="{{item.name}}" ng-model="TAXONOMIES.categories[item.id]" />
+          <div class="controls">
+            <div class="col">
+              <div class="loading" ng-if="TAXONOMIES.loading.categories[item.id]">
+                <div class="pointer"></div>
+              </div>
+              <i ng-if="item.editing && !TAXONOMIES.loading.categories[item.id]" class="fa fa-floppy-o" aria-hidden="true" ng-click="TAXONOMIES.saveCategoryEditing(item.id)"></i>
+              <i ng-if="!item.editing" class="fa fa-pencil" aria-hidden="true" ng-click="TAXONOMIES.editCategory(item.id)"></i>
+            </div>
+            <div class="delete">
+              <i ng-if="item.editing" class="fa fa-ban" aria-hidden="true" ng-click="TAXONOMIES.cancelCategoryEditing(item.id)"></i>
+              <i ng-if="!item.editing" class="fa fa-trash-o" aria-hidden="true" ng-click="TAXONOMIES.deleteCategory(item.id)"></i>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <form ng-submit="TAXONOMIES.addCategory(TAXONOMIES.category)">
+        <h3>New category:</h3>
+        <input
+          type="text"
+          class="text-input"
+          placeholder="New category name"
+          ng-model="TAXONOMIES.category.name"
+        />
+        <input type="submit" class="button" name="button" value="Create" />
+      </form>
+    </div>
+  </section>
+  <section>
+    <div class="top" ng-click="TAXONOMIES.marketsCollapsed = !TAXONOMIES.marketsCollapsed">
+      <h3>Markets:</h3>
+      <span class="mini-button">
+        <i ng-if="!TAXONOMIES.marketsCollapsed" class="fa fa-angle-down" aria-hidden="true"></i>
+        <i ng-if="TAXONOMIES.marketsCollapsed" class="fa fa-angle-right" aria-hidden="true"></i>
+      </span>
+    </div>
+    <div ng-if="!TAXONOMIES.marketsCollapsed">
+    <ul>
+      <li ng-repeat="item in TAXONOMIES.marketsList">
+        <h3 ng-hide="item.editing">{{item.name}}</h3>
+        <input ng-if="item.editing" type="text" value="{{item.name}}" ng-model="TAXONOMIES.markets[item.id]" />
+        <div class="controls">
+          <div class="col">
+            <div class="loading" ng-if="TAXONOMIES.loading.markets[item.id]">
+              <div class="pointer"></div>
+            </div>
+            <i ng-if="item.editing && !TAXONOMIES.loading.markets[item.id]" class="fa fa-floppy-o" aria-hidden="true" ng-click="TAXONOMIES.saveMarketEditing(item.id)"></i>
+            <i ng-if="!item.editing" class="fa fa-pencil" aria-hidden="true" ng-click="TAXONOMIES.editMarket(item.id)"></i>
+          </div>
+          <div class="delete">
+            <i ng-if="item.editing" class="fa fa-ban" aria-hidden="true" ng-click="TAXONOMIES.cancelMarketEditing(item.id)"></i>
+            <i ng-if="!item.editing" class="fa fa-trash-o" aria-hidden="true" ng-click="TAXONOMIES.deleteMarket(item.id)"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <form ng-submit="TAXONOMIES.addMarket(TAXONOMIES.market)">
+      <h3>New market:</h3>
+      <input
+        type="text"
+        class="text-input"
+        placeholder="New market name"
+        ng-model="TAXONOMIES.market.name"
+      />
+      <input type="submit" class="button" name="button" value="Create" />
+    </form>
+    </div>
+  </section>
+</div>

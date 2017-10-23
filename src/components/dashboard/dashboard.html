@@ -1,0 +1,44 @@
+<div class="dashboard viewport">
+  <div class="col-2">
+    <a ui-sref="home.items-list" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-list-alt" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Список товарів</div>
+    </a>
+  </div>
+  <div class="col-2" ng-if="isAuth()">
+    <a ui-sref="home.buy-list" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Список покупок</div>
+    </a>
+  </div>
+  <div class="col-2">
+    <a ui-sref="home.wishes" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-user-secret" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Побажання</div>
+    </a>
+  </div>
+  <div class="col-2" ng-if="isAuth()">
+    <a ui-sref="home.taxonomies" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-list" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Таксономії</div>
+    </a>
+  </div>
+  <div class="col-2" ng-if="isAuth()">
+    <a ui-sref="home.report" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-money" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Звіт</div>
+    </a>
+  </div>
+  <div class="col-2" ng-if="isAuth()">
+    <a ui-sref="home.templates" class="plate-btn">
+      <div class="plate-btn-ico"><i class="fa fa-folder-o" aria-hidden="true"></i></div>
+      <div class="plate-btn-label">Шаблони покупок</div>
+    </a>
+  </div>
+
+  <!-- <a class="plate-btn"><i class="fa fa-user-secret" aria-hidden="true"></i>Спец замовлення</a> -->
+  <!--
+  <a ui-sref="home.buy-list" class="plate-btn"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>Список покупок</a>
+  <a ui-sref="home.wishes" class="plate-btn"><i class="fa fa-female" aria-hidden="true"></i>Побажання</a>
+  -->
+</div>

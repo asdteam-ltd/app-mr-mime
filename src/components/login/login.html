@@ -1,0 +1,11 @@
+<div class="login viewport">
+  <form name="loginForm" ng-submit="LOGIN.login(LOGIN.pin)" class="col-1">
+    <label>PIN code</label>
+    <input type="text" class="text-input" ng-required="true" ng-model="LOGIN.pin">
+    <input type="submit" class="button" ng-disabled="loginForm.$invalid" value="Вхід" />
+    <input type="button" ng-click="LOGIN.resetPin()" class="button" value="Відновити пароль" />
+
+    <p ng-if="LOGIN.wrongPin">Неправильний PIN.</p>
+    <p ng-if="LOGIN.resetMessage">Новий PIN надіслано у <b>Slack</b></p>
+  </form>
+</div>

@@ -1,0 +1,41 @@
+<div class="add-item viewport">
+  <form name="addItem" ng-submit="ADD_ITEM.add();">
+    <h2 class="viewport-title">Add new product</h2>
+    <label>Product name:</label>
+    <input type="text" class="text-input" ng-model="ADD_ITEM.state.name" />
+
+    <label>Product description:</label>
+    <textarea name="" class="wisharea" ng-model="ADD_ITEM.state.description"></textarea>
+
+    <label>Select category:</label>
+    <select
+      class="select-input"
+      ng-model="ADD_ITEM.state.category"
+      ng-options="category.id as category.name for category in ADD_ITEM.categories"
+    ></select>
+
+    <label>Select market:</label>
+    <select
+      class="select-input"
+      ng-model="ADD_ITEM.state.market"
+      ng-options="market.id as market.name for market in ADD_ITEM.markets"
+    ></select>
+
+    <div class="row">
+      <label>Critical product:</label>
+      <input id="critical-checkbox" type="checkbox"  ng-model="ADD_ITEM.state.critical" />
+      <label for="critical-checkbox" class="checkbox" ng-class="ADD_ITEM.state.critical && 'active'">
+        <div class="pointer"></div>
+      </label>
+    </div>
+    <div class="row">
+      <label>Private product:</label>
+      <input type="checkbox"  ng-model="ADD_ITEM.state.private" id="private-checkbox" />
+      <label for="private-checkbox" class="checkbox" ng-class="ADD_ITEM.state.private && 'active'">
+        <div class="pointer"></div>
+      </label>
+    </div>
+
+    <input type="submit" class="button" value="Create" />
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="viewport buy-list">
+  <div class="select-templates">
+    <h3>Show items from:</h3>
+    <div class="select">
+      <div class="fixed-active" ng-click="BUY_LIST.toggleDropdown()">{{BUY_LIST.activeDropdown === 'cart' ? 'Cart' : BUY_LIST.activeDropdown.name}}</div>
+      <div class="dropdown" ng-if="BUY_LIST.dropdown">
+        <div
+          class="item"
+          ng-click="BUY_LIST.setActiveTemplate('cart')"
+          ng-class="BUY_LIST.activeDropdown === 'cart' ? 'active' : ''"
+        >
+          <h3>Cart</h3>
+        </div>
+        <div class="pipe">templates:</div>
+        <div
+          class="item"
+          ng-class="BUY_LIST.activeDropdown.id === template.id ? 'active' : ''"
+          id="template.id"
+          ng-repeat="template in BUY_LIST.templates"
+          ng-click="BUY_LIST.setActiveTemplate(template.id)"
+        >
+          <h3>{{template.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <buy-item
+    cart="true"
+    ng-repeat="item in BUY_LIST.items"
+    data="item"
+    on-bought="BUY_LIST.toggleItem"
+    toggle-item="BUY_LIST.toggleItem"
+  ></buy-item>
+  <div ng-if="!BUY_LIST.items.length" class="no-items">No items in buy list</div>
+  <div ng-if="BUY_LIST.emptyFields" class="hint">Виберіть товар і введіть вартість покупки</div>
+  <div class="buy-control">
+    <input type="text" placeholder="Сума покупки" ng-model="BUY_LIST.total">
+    <button ng-click="BUY_LIST.onBought(BUY_LIST.total)">оформити покупку</button>
+  </div>
+</div>

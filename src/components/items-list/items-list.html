@@ -1,0 +1,86 @@
+<div class="list viewport filters">
+  <div class="top" ng-click="ITEMS_LIST.toggleFilters()">
+    <h2>Filters:</h2>
+    <span class="mini-button">
+      <i ng-if="!ITEMS_LIST.filtersCollapsed" class="fa fa-angle-down" aria-hidden="true"></i>
+      <i ng-if="ITEMS_LIST.filtersCollapsed" class="fa fa-angle-right" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="items-filters" ng-hide="ITEMS_LIST.filtersCollapsed">
+    <div class="title">
+      <h5>Status:</h5>
+      <div class="controls">
+        <i class="fa fa-check-square" aria-hidden="true" ng-click="ITEMS_LIST.selectAllStatus()"></i>
+        <div class="pipe"></div>
+        <i class="fa fa-times-circle" aria-hidden="true" ng-click="ITEMS_LIST.clearAllStatus()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <label class="critical" ng-class="{active: ITEMS_LIST.filter.critical}">
+        Critical only
+        <input type="checkbox" class="checkbox" ng-model="ITEMS_LIST.filter.critical">
+      </label>
+      <label class="status-first" ng-class="{active: ITEMS_LIST.filter.over}">
+        Over
+        <input type="checkbox" class="checkbox" ng-model="ITEMS_LIST.filter.over">
+      </label>
+      <label ng-class="{active: ITEMS_LIST.filter.few}">
+        Few
+        <input type="checkbox" class="checkbox" ng-model="ITEMS_LIST.filter.few">
+      </label>
+      <label ng-class="{active: ITEMS_LIST.filter.enough}">
+        Enought
+        <input type="checkbox" class="checkbox" ng-model="ITEMS_LIST.filter.enough">
+      </label>
+    </div>
+    <div class="title">
+      <h5>Select markets:</h5>
+      <div class="controls">
+        <i class="fa fa-check-square" aria-hidden="true" ng-click="ITEMS_LIST.selectAllMarkets()"></i>
+        <div class="pipe"></div>
+        <i class="fa fa-times-circle" aria-hidden="true" ng-click="ITEMS_LIST.clearSelectedMarkets()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <label ng-class="{active: market.selected}" ng-repeat="market in ITEMS_LIST.filter.marketsList">
+        {{market.name}}
+        <input type="checkbox" class="checkbox" ng-model="market.selected">
+      </label>
+    </div>
+    <div class="title">
+      <h5>Select categories:</h5>
+      <div class="controls">
+        <i class="fa fa-check-square" aria-hidden="true" ng-click="ITEMS_LIST.selectAllCategories()"></i>
+        <div class="pipe"></div>
+        <i class="fa fa-times-circle" aria-hidden="true" ng-click="ITEMS_LIST.clearSelectedCategories()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <label ng-class="{active: category.selected}" ng-repeat="category in ITEMS_LIST.filter.categoriesList">
+        {{category.name}}
+        <input type="checkbox" class="checkbox" ng-model="category.selected">
+      </label>
+    </div>
+  </div>
+</div>
+<div class="items">
+  <h2>Products:</h2>
+  <div class="col-1 item-list" ng-repeat="item in ITEMS_LIST.items">
+    <list-item
+    on-change-status="ITEMS_LIST.onChangeItemStatus"
+    on-delete-product="ITEMS_LIST.onDeleteProduct"
+    on-add-to-buy-list="ITEMS_LIST.onAddToBuyList"
+    on-remove-from-buy-list="ITEMS_LIST.onRemoveFromBuyList"
+    data="item"
+    categories="ITEMS_LIST.filter.categoriesList"
+    markets="ITEMS_LIST.filter.marketsList"
+    ></list-item>
+  </div>
+
+  <div class="footer">
+    <button class="notify-btn" ng-click="ITEMS_LIST.notify();">Notify about expired products</button>
+    <float-link scroll-to-end="ITEMS_LIST.scrollToEnd" ui-sref="home.add-item({ id: '' })">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </float-link>
+  </div>
+</div>

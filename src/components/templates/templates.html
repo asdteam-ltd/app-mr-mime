@@ -1,0 +1,12 @@
+<div class="templates viewport">
+  <div class="template" ng-repeat="template in TEMPLATES.templates">
+    <h2>{{template.name}}</h2>
+    <div class="control">
+      <a ui-sref="home.editTemplate({ id: template.id })">
+        <i class="edit fa fa-pencil" aria-hidden="true"></i>
+      </a>
+      <i ng-click="TEMPLATES.deleteTemplate(template.id)" class="delete fa fa-trash-o" aria-hidden="true"></i>
+    </div>
+  </div>
+  <a class="create" ui-sref="home.createTemplate">create</a>
+</div>

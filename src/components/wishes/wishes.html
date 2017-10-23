@@ -1,0 +1,23 @@
+<div class="wishes viewport">
+  <form name="wishForm" ng-submit="WISHES.add()">
+    <h2 class="viewport-title">New wishes:</h2>
+    <textarea name="" class="wisharea" ng-model="WISHES.text" placeholder="Enter description of your wishes"></textarea>
+    <input type="submit" class="button submit-btn" />
+  </form>
+  <h2>People wish:</h2>
+  <div class="wishes-list">
+    <ul>
+      <li ng-repeat="item in WISHES.list">
+        <h3>{{item.name}}</h3>
+        <div class="controls">
+          <div ng-if="isAuth()" ui-sref="home.add-item({ id: item.id })">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </div>
+          <div class="delete" ng-if="isAuth()" ng-click="WISHES.delete(item.id)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
