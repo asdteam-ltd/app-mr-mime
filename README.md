@@ -19,17 +19,4 @@ npm run build
 ```
 
 ### Deploy:
-1. Create `ssh-config.json` file in root
-```json
-{
-      "host": "YO.UR.HO.ST",
-      "port": 0,
-      "username": "YourUsername",
-      "password": "YourPassword"
-}
-```
-
-And after that run deploy script in terminal:
-```bash
-npm run deploy
-```
+Automatic deploy with travis.
