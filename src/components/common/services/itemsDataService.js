@@ -17,7 +17,7 @@ const itemsDataService = (API) => {
     API.get('items/');
 
   const setAsOver = (id) =>
-    API.put('items');
+    API.put(`items/over/${id}`);
 
   const setAsFew = (id) =>
     API.put(`items/few/${id}`);
