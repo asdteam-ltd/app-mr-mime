@@ -1,6 +1,6 @@
 const apiService = ($http, $q) => {
 	'use strict';
-	const appUrl = `http://54.225.225.47:1337/`;
+	const appUrl = `https://54.225.225.47:1337/`;
 
 	const _wrapRequest = (data) => angular.toJson(data);
 
