@@ -8,7 +8,7 @@ const { putDir, progress, done, error, finish } = require('./helpers');
 
 const sftp = new Client();
 
-const remotePath = '/data/app.mrmime'; // Remote path
+const remotePath = '/var/public/app.mrmime'; // Remote path
 
 console.log('\x1Bc');
 console.log(colors.green('____________________________'));
